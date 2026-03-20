@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กลศาสตร์ A-Level Mastery (10 ข้อ)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body { font-family: 'Sarabun', sans-serif; background-color: #f8fafc; }
+        .slide { display: none; min-height: 600px; }
+        .slide.active { display: block; animation: slideIn 0.3s ease-out; }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+        .btn-choice { @apply w-full text-left p-4 border-2 border-slate-200 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition-all mb-3 text-lg; }
+        .solution-box { @apply mt-4 p-6 bg-blue-50 rounded-2xl border border-blue-100 text-slate-700 hidden; }
+    </style>
+</head>
+<body class="p-4 md:p-8 min-h-screen flex items-center justify-center">
+
+<div class="w-full max-w-4xl bg-white rounded-[2rem] shadow-2xl overflow-hidden flex flex-col border border-slate-100">
+    <!-- Header -->
+    <div class="bg-slate-900 p-6 text-white flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center font-bold text-xl">Φ</div>
+            <div>
+                <h1 class="font-bold text-lg leading-none">Mechanics A-Level</h1>
+                <p class="text-xs text-slate-400">Physics 10 Core Challenges</p>
+            </div>
+        </div>
+        <div id="slide-counter" class="bg-slate-800 px-4 py-2 rounded-full text-sm font-mono tracking-tighter">
+            01 / 12
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="p-8 md:p-12 flex-grow overflow-y-auto">
+        
+        <!-- Slide 1: Intro -->
+        <div id="slide-1" class="slide active">
+            <div class="text-center py-10">
+                <h2 class="text-5xl font-extrabold text-slate-800 mb-6">เจาะลึกกลศาสตร์</h2>
+                <p class="text-xl text-slate-500 mb-12 leading-relaxed">สรุปโจทย์กลุ่มกลศาสตร์ 10 หัวข้อหลัก <br> ที่ออกสอบบ่อยที่สุดใน A-Level ฟิสิกส์</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="p-4 bg-slate-50 rounded-2xl"><p class="font-bold text-blue-600 italic">Newton</p></div>
+                    <div class="p-4 bg-slate-50 rounded-2xl"><p class="font-bold text-green-600 italic">Energy</p></div>
+                    <div class="p-4 bg-slate-50 rounded-2xl"><p class="font-bold text-red-600 italic">Momentum</p></div>
+                    <div class="p-4 bg-slate-50 rounded-2xl"><p class="font-bold text-purple-600 italic">Circular</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Q1 -->
+        <div id="slide-2" class="slide">
+            <h3 class="text-blue-600 font-bold mb-2">01: การเคลื่อนที่แนวตรง</h3>
+            <p class="text-2xl text-slate-800 mb-8 leading-snug">วัตถุเคลื่อนที่ในแนวเส้นตรง โดยมีความเร็ว $v$ ตามความสัมพันธ์ $v = 4t + 2$ เมตรต่อวินาที ในช่วงเวลา $t = 0$ ถึง $t = 5$ วินาที วัตถุนี้จะเคลื่อนที่ได้ระยะทางกี่เมตร</p>
+            <div class="space-y-1">
+                <button class="btn-choice">1. 50 เมตร</button>
+                <button class="btn-choice">2. 60 เมตร</button>
+                <button class="btn-choice">3. 70 เมตร</button>
+                <button class="btn-choice">4. 80 เมตร</button>
+            </div>
+            <button onclick="showSolution(2)" class="mt-6 font-bold text-blue-600">ดูวิธีทำ</button>
+            <div id="sol-2" class="solution-box">
+                <p class="font-bold text-blue-800 mb-2 underline">เฉลย: ข้อ 2 (60 เมตร)</p>
+                <p>เปรียบเทียบกับสูตร $v = u + at$<br>จะได้ $u = 2 \text{ m/s}$ และความเร่ง $a = 4 \text{ m/s}^2$<br>
+                หาระยะทางจาก $s = ut + \frac{1}{2}at^2$<br>
+                $s = (2)(5) + \frac{1}{2}(4)(5^2) = 10 + 50 = 60 \text{ m}$</p>
+            </div>
+        </div>
+
+        <!-- Slide 3: Q2 -->
+        <div id="slide-3" class="slide">
+            <h3 class="text-blue-600 font-bold mb-2">02: โพรเจกไทล์</h3>
+            <p class="text-2xl text-slate-800 mb-8 leading-snug">ขว้างวัตถุจากดาดฟ้าตึกสูง $H$ ในแนวระดับด้วยอัตราเร็ว $u$ วัตถุตกห่างจากฐานตึกเท่ากับความสูง $H$ พอดี อัตราเร็ว $u$ มีค่าเท่าใด</p>
+            <div class="grid grid-cols-2 gap-4">
+                <button class="btn-choice">1. $\sqrt{gH}$</button>
+                <button class="btn-choice">2. $\sqrt{gH/2}$</button>
+                <button class="btn-choice">3. $\sqrt{2gH}$</button>
+                <button class="btn-choice">4. $2gH$</button>
+            </div>
+            <button onclick="showSolution(3)" class="mt-6 font-bold text-blue-600">ดูวิธีทำ</button>
+            <div id="sol-3" class="solution-box">
+                <p class="font-bold text-blue-800 mb-2 underline">เฉลย: ข้อ 2</p>
+                <p>แกน y: $H = \frac{1}{2}gt^2 \rightarrow t = \sqrt{\frac{2H}{g}}$<br>
+                แกน x: $H = ut \rightarrow H = u\sqrt{\frac{2H}{g}}$<br>
+                ยกกำลังสองทั้งสองข้าง: $H^2 = u^2 \frac{2H}{g} \rightarrow u^2 = \frac{gH}{2} \rightarrow u = \sqrt{\frac{gH}{2}}$</p>
+            </div>
+        </div>
+
+        <!-- Slide 4: Q3 -->
+        <div id="slide-4" class="slide">
+            <h3 class="text-blue-600 font-bold mb-2">03: กฎการเคลื่อนที่ของนิวตัน</h3>
+            <p class="text-2xl text-slate-800 mb-8 leading-snug">มวล $m$ บนพื้นเอียงลื่น $30^\circ$ มีแรง $F$ ดันขึ้นขนานพื้นเอียง ทำให้มวลมีความเร่งชี้ขึ้น $g/4$ แรง $F$ มีขนาดกี่เท่าของน้ำหนักวัตถุ ($mg$)</p>
+            <div class="grid grid-cols-2 gap-4">
+                <button class="btn-choice">1. 1/4 เท่า</button>
+                <button class="btn-choice">2. 1/2 เท่า</button>
+                <button class="btn-choice">3. 3/4 เท่า</button>
+                <button class="btn-choice">4. 1 เท่า</button>
+            </div>
+            <button onclick="showSolution(4)" class="mt-6 font-bold text-blue-600">ดูวิธีทำ</button>
+            <div id="sol-4" class="solution-box">
+                <p>จาก $\Sigma F = ma$<br>
+                $F - mg \sin 30^\circ = m(g/4)$<br>
+                $F - 0.5mg = 0.25mg$<br>
+                $F = 0.75mg$ หรือ **3/4 เท่า**</p>
+            </div>
+        </div>
+
+        <!-- Slide 5: Q4 -->
+        <div id="slide-5" class="slide">
+            <h3 class="text-blue-600 font-bold mb-2">04: สมดุลกล</h3>
+            <p class="text-2xl text-slate-800 mb-8 leading-snug">คานสม่ำเสมอยาว $L$ หนัก $W$ พิงกำแพงลื่น ปลายล่างวางบนพื้นฝืดที่มีสัมประสิทธิ์ $\mu$ ขณะคานกำลังจะไถล มุม $\theta$ ที่คานทำกับพื้นมีค่า $\tan \theta$ เท่าใด</p>
+            <div class="grid grid-cols-2 gap-4">
+                <button class="btn-choice">1. $\mu$</button>
+                <button class="btn-choice">2. $2\mu$</button>
+                <button class="btn-choice">3. $1/(2\mu)$</button>
+                <button class="btn-choice">4. $\mu/2$</button>
+            </div>
+            <button onclick="showSolution(5)" class="mt-6 font-bold text-blue-600">ดูวิธีทำ</button>
+            <div id="sol-5" class="solution-box">
+                <p>สมดุลโมเมนต์ที่จุดปลายล่าง:<br>
+                $W(\frac{L}{2}\cos\theta) = N_{wall}(L\sin\theta)$<br>
+                สมดุลแรง: $N_{floor} = W$ และ $N_{wall} = f = \mu N_{floor} = \mu W$<br>
+                แทนค่า: $W\frac{L}{2}\cos\theta = (\mu W)L\sin\theta \rightarrow \frac{\sin\theta}{\cos\theta} = \frac{1}{2\mu} \rightarrow \tan\theta = \frac{1}{2\mu}$</p>
+            </div>
+        </div>
+
+        <!-- Slide 6: Q5 -->
+        <div id="slide-6" class="slide">
+            <h3 class="text-blue-600 font-bold mb-2">05: งานและพลังงาน</h3>
+            <p class="text-2xl text-slate-800 mb-8 leading-snug">มวล $2\text{ kg}$ วิ่งด้วยอัตราเร็ว $10\text{ m/s}$ เข้าชนสปริงที่วางบนพื้นราบลื่น ($k = 200\text{ N/m}$) สปริงจะถูกอัดเข้าไปได้มากที่สุดกี่เมตร</p>
+            <div class="space-y-1">
+                <button class="btn-choice">1. 0.5 เมตร</button>
+                <button class="btn-choice">2. 1.0 เมตร</button>
+                <button class="btn-choice">3. 1.5 เมตร</button>
+                <button class="btn-choice">4. 2.0 เมตร</button>
+            </div>
+            <button onclick="showSolution(6)" class="mt-6 font-bold text-blue-600">ดูวิธีทำ</button>
+            <div id="sol-6" class="solution-box">
+                <p>พลังงานจลน์เปลี่ยนเป็นพลังงานศักย์สปริง:<br>
+                $\frac{1}{2}mv^2 = \frac{1}{2}kx^2$<br>
+                $(2)(10^2) = (200)x^2 \rightarrow 200 = 200x^2 \rightarrow x = 1$ เมตร</p>
+            </div>
+        </div>
+
+        <!-- Slide 7: Q6 -->
+        <div id="slide-7" class="slide">
+            <h3 class="text-blue-600 font-bold mb-2">06: โมเมนตัมและการชน</h3>
+            <p class="text-2xl text-slate-800 mb-8 leading-snug">มวล $M$ วิ่งด้วยความเร็ว $v$ ชนมวล $2M$ ที่อยู่นิ่ง หลังชนติดกันไป พลังงานจลน์ของระบบหายไปร้อยละเท่าใด</p>
+            <div class="grid grid-cols-2 gap-4">
+                <button class="btn-choice">1. 33.3%</button>
+                <button class="btn-choice">2. 50.0%</button>
+                <button class="btn-choice">3. 66.7%</button>
+                <button class="btn-choice">4. 75.0%</button>
+            </div>
+            <button onclick="showSolution(7)" class="mt-6 font-bold text-blue-600">ดูวิธีทำ</button>
+            <div id="sol-7" class="solution-box">
+                <p>1. หาความเร็วหลังชน: $Mv = (3M)V \rightarrow V = v/3$<br>
+                2. พลังงานจลน์หลังชน: $E_{k2} = \frac{1}{2}(3M)(v/3)^2 = \frac{1}{3}(\frac{1}{2}Mv^2) = \frac{1}{3}E_{k1}$<br>
+                3. พลังงานหายไป: $1 - 1/3 = 2/3$ หรือ **66.7%**</p>
+            </div>
+        </div>
+
+        <!-- Slide 8: Q7 -->
+        <div id="slide-8" class="slide">
+            <h3 class="text-blue-600 font-bold mb-2">07: การเคลื่อนที่แบบวงกลม</h3>
+            <p class="text-2xl text-slate-800 mb-8 leading-snug">รถเลี้ยวโค้งรัศมี $R$ บนถนนราบได้เร็วสุด $v$ ถ้าฝนตกทำให้สัมประสิทธิ์ความเสียดทานลดลงเหลือเพียง $1/4$ ของเดิม อัตราเร็วสูงสุดใหม่จะเป็นกี่เท่าของ $v$</p>
+            <div class="grid grid-cols-2 gap-4">
+                <button class="btn-choice">1. $v/4$</button>
+                <button class="btn-choice">2. $v/2$</button>
+                <button class="btn-choice">3. $v/\sqrt{2}$</button>
+                <button class="btn-choice">4. $2v$</button>
+            </div>
+            <button onclick="showSolution(8)" class="mt-6 font-bold text-blue-600">ดูวิธีทำ</button>
+            <div id="sol-8" class="solution-box">
+                <p>แรงสู่ศูนย์กลางมาจากแรงเสียดทาน: $\mu mg = \frac{mv^2}{R} \rightarrow v = \sqrt{\mu g R}$<br>
+                ดังนั้น $v \propto \sqrt{\mu}$<br>
+                เมื่อ $\mu$ ลดเหลือ $1/4$ เท่า $\rightarrow v_{new} = \sqrt{1/4} v = 1/2 v$</p>
+            </div>
+        </div>
+
+        <!-- Slide 9: Q8 -->
+        <div id="slide-9" class="slide">
+            <h3 class="text-blue-600 font-bold mb-2">08: Simple Harmonic Motion</h3>
+            <p class="text-2xl text-slate-800 mb-8 leading-snug">ลูกตุ้มอย่างง่ายแกว่งบนโลกด้วยคาบ $T$ ถ้านำไปแกว่งบนดวงจันทร์ซึ่งมีค่า $g$ เป็น $1/6$ เท่าของโลก คาบการแกว่งจะเป็นกี่เท่าของ $T$</p>
+            <div class="grid grid-cols-2 gap-4">
+                <button class="btn-choice">1. $1/6$ เท่า</button>
+                <button class="btn-choice">2. $1/\sqrt{6}$ เท่า</button>
+                <button class="btn-choice">3. $\sqrt{6}$ เท่า</button>
+                <button class="btn-choice">4. 6 เท่า</button>
+            </div>
+            <button onclick="showSolution(9)" class="mt-6 font-bold text-blue-600">ดูวิธีทำ</button>
+            <div id="sol-9" class="solution-box">
+                <p>จากสูตร $T = 2\pi\sqrt{\frac{L}{g}} \rightarrow T \propto \frac{1}{\sqrt{g}}$<br>
+                $T_{moon} = T \times \frac{1}{\sqrt{1/6}} = \sqrt{6} T$</p>
+            </div>
+        </div>
+
+        <!-- Slide 10: Q9 -->
+        <div id="slide-10" class="slide">
+            <h3 class="text-blue-600 font-bold mb-2">09: กฎความโน้มถ่วง</h3>
+            <p class="text-2xl text-slate-800 mb-8 leading-snug">ดาวเคราะห์ X มีมวลเป็น 8 เท่าของโลก และมีรัศมีเป็น 2 เท่าของโลก ค่าความเร่งโน้มถ่วงที่ผิวของดาว X เป็นกี่เท่าของโลก ($g$)</p>
+            <div class="grid grid-cols-2 gap-4">
+                <button class="btn-choice">1. 1 เท่า</button>
+                <button class="btn-choice">2. 2 เท่า</button>
+                <button class="btn-choice">3. 4 เท่า</button>
+                <button class="btn-choice">4. 16 เท่า</button>
+            </div>
+            <button onclick="showSolution(10)" class="mt-6 font-bold text-blue-600">ดูวิธีทำ</button>
+            <div id="sol-10" class="solution-box">
+                <p>จาก $g = \frac{GM}{R^2}$<br>
+                $g' = \frac{G(8M)}{(2R)^2} = \frac{8}{4} \frac{GM}{R^2} = 2g$</p>
+            </div>
+        </div>
+
+        <!-- Slide 11: Q10 -->
+        <div id="slide-11" class="slide">
+            <h3 class="text-blue-600 font-bold mb-2">10: กำลังและประสิทธิภาพ</h3>
+            <p class="text-2xl text-slate-800 mb-8 leading-snug">ปั้นจั่นใช้กำลัง $2,000\text{ W}$ ยกวัตถุ $100\text{ kg}$ ขึ้นสูง $10\text{ m}$ ในเวลา $10\text{ s}$ ประสิทธิภาพของปั้นจั่นเป็นเท่าใด ($g=10\text{ m/s}^2$)</p>
+            <div class="grid grid-cols-2 gap-4">
+                <button class="btn-choice">1. 20%</button>
+                <button class="btn-choice">2. 40%</button>
+                <button class="btn-choice">3. 50%</button>
+                <button class="btn-choice">4. 80%</button>
+            </div>
+            <button onclick="showSolution(11)" class="mt-6 font-bold text-blue-600">ดูวิธีทำ</button>
+            <div id="sol-11" class="solution-box">
+                <p>งานที่ได้ (Output) = $mgh = 100 \times 10 \times 10 = 10,000 \text{ J}$<br>
+                กำลังที่ได้ = $W/t = 10,000/10 = 1,000 \text{ W}$<br>
+                ประสิทธิภาพ = $(\text{Out/In}) \times 100 = (1,000/2,000) \times 100 = 50\%$</p>
+            </div>
+        </div>
+
+        <!-- Slide 12: Summary -->
+        <div id="slide-12" class="slide">
+            <div class="text-center py-6">
+                <h2 class="text-3xl font-bold text-slate-800 mb-6">สรุปผลการฝึกฝน</h2>
+                <div class="bg-green-50 p-6 rounded-3xl border border-green-100 inline-block text-left mb-8">
+                    <p class="text-green-800 font-bold mb-2">จุดที่ควรระวังในห้องสอบ:</p>
+                    <ul class="space-y-2 text-slate-600">
+                        <li>✅ เช็คหน่วยเสมอ ($g=9.8$ หรือ $10$?)</li>
+                        <li>✅ วาด Free Body Diagram (FBD) ให้ครบ</li>
+                        <li>✅ กฎการอนุรักษ์พลังงานช่วยให้คิดเลขเร็วขึ้น</li>
+                    </ul>
+                </div>
+                <div>
+                    <button onclick="goToSlide(1)" class="px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold shadow-xl hover:bg-slate-800 transition-all">กลับหน้าแรก</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navigation -->
+    <div class="bg-slate-50 p-6 flex justify-between items-center border-t border-slate-100">
+        <button id="prev-btn" onclick="nav(-1)" class="text-slate-400 font-bold hover:text-slate-900 transition-all">PREVIOUS</button>
+        <div class="flex space-x-2" id="dots"></div>
+        <button id="next-btn" onclick="nav(1)" class="bg-blue-600 text-white px-8 py-3 rounded-2xl font-bold shadow-lg hover:bg-blue-700 transition-all">NEXT</button>
+    </div>
+</div>
+
+<script>
+    let current = 1;
+    const total = 12;
+
+    function initDots() {
+        const container = document.getElementById('dots');
+        for(let i=1; i<=total; i++) {
+            const dot = document.createElement('div');
+            dot.className = `w-2 h-2 rounded-full transition-all ${i===1 ? 'bg-blue-600 scale-125' : 'bg-slate-300'}`;
+            dot.id = `dot-${i}`;
+            container.appendChild(dot);
+        }
+    }
+
+    function nav(dir) {
+        const next = current + dir;
+        if(next >= 1 && next <= total) goToSlide(next);
+    }
+
+    function goToSlide(n) {
+        document.getElementById(`slide-${current}`).classList.remove('active');
+        document.getElementById(`dot-${current}`).className = 'w-2 h-2 rounded-full bg-slate-300 transition-all';
+        
+        current = n;
+        
+        document.getElementById(`slide-${current}`).classList.add('active');
+        document.getElementById(`dot-${current}`).className = 'w-2 h-2 rounded-full bg-blue-600 scale-125 transition-all';
+        document.getElementById('slide-counter').innerText = `${String(current).padStart(2, '0')} / ${total}`;
+        
+        // Render Math
+        if(window.MathJax) window.MathJax.typesetPromise();
+        
+        updateButtons();
+    }
+
+    function updateButtons() {
+        const prev = document.getElementById('prev-btn');
+        const next = document.getElementById('next-btn');
+        prev.style.opacity = current === 1 ? '0.3' : '1';
+        next.innerText = current === total ? 'FINISH' : 'NEXT';
+    }
+
+    function showSolution(id) {
+        const box = document.getElementById(`sol-${id}`);
+        box.style.display = box.style.display === 'block' ? 'none' : 'block';
+        if(window.MathJax) window.MathJax.typesetPromise();
+    }
+
+    initDots();
+    updateButtons();
+</script>
+
+</body>
+</html>
